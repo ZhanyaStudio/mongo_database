@@ -49,19 +49,17 @@ void main() {
           return data.toMap();
         },
       ),
-      schema: Schema(
-        properties: {
-          "first_name": const Property(),
-          "last_name": const Property(),
-          "phone_number": Property(
-            validator: (value) {
-              if (value == null) return "Required";
-              if (value.length != 11 || !value.startsWith("09")) return "Invalid";
-              return null;
-            },
-          ),
-        },
-      ),
+      schema: Schema({
+        "first_name": const Property(),
+        "last_name": const Property(),
+        "phone_number": Property(
+          validator: (value) {
+            if (value == null) return "Required";
+            if (value.length != 11 || !value.startsWith("09")) return "Invalid";
+            return null;
+          },
+        ),
+      }),
     );
     final document = await model.create(const PatientRecord(
       firstName: "Ehsan",

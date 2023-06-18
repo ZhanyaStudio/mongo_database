@@ -17,9 +17,7 @@ class Property {
 class Schema {
   final Map<String, Property> properties;
 
-  Schema({
-    required this.properties,
-  });
+  Schema(this.properties);
 
   String? validate(Map<String, dynamic> data) {
     for (final entry in properties.entries) {
